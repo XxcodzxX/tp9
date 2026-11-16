@@ -1,0 +1,16 @@
+
+<ul>
+    @for (item of todoList; track $index) {
+        <li>
+            <span [style.color]="($index %2==0)?'blue':'red'">
+                {{$index+1}} / {{$count}} 
+            </span> 
+                {{item.task}} - <span [class]="{'badge':true,'text-bg-dark':item.state=='not yet','text-bg-primary':item.state=='in progress', 'text-bg-danger': item.state=='done'}">{{item.state}}</span>
+             @if (item.state=="not yet") {
+              <button (click)="com(item)">commencer</button>
+            } @else if (item.state=="in progress") {
+              <button (click)="ter(item)">done</button>
+            } 
+        </li>
+    }
+</ul>

@@ -1,0 +1,5 @@
+<ul>
+    @for (etu of students; track $index) {
+        <li><strong>Etudiant num {{$index+1}}/{{$count}}</strong>{{etu.photo}} {{etu.firstname}} {{etu.lastname}}- {{etu.option}} -date de naissance: {{etu.birthDate |date: 'dd/MM/yyyy'}}  @if (etu.grade>=10) {Moyenne: {{etu.grade}}}<button (click)="inf(etu)">info</button></li>
+    }
+</ul>
